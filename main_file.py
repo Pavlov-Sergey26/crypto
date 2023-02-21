@@ -53,7 +53,7 @@ def find_price_for_futures(req):
     check_percent = coll.find({ '_id':f"{(date_now - timedelta(hours=1)).strftime('%Y-%m-%d %H')}"})
     for check in check_percent:
         if percent_now > float(check['percent']) and percent_now + float(check['percent']) >= 1 or percent_now < float(check['percent']) and percent_now - float(check['percent']) <= 1:
-            print(f"За последний час цена фьючерса ETH-USDT изменилась с {percent_now:.{2}f}% на {check['percent']:.{2}f}% ")
+            print(f"За последний час цена фьючерса ETH-USDT изменилась с {check['percent']:.{2}f} на {percent_now:.{2}f}% % ")
 
             #Решил cделать бонусом, выводить "логи" в какой нибудь чат, для примера я взял Discord
             header_dis = {'authorization': 'MzM1ODI5NDEwNzYwNjIyMDgw.GCAfrU.IspLu7FBf1gfKcnmuWs32eWeKxc0nXr2UedeEA'}
